@@ -2,15 +2,14 @@
 
 import { motion } from 'framer-motion'
 import { FEATURES } from '@/constants'
-import { FeatureCard } from '@/modules/FeaturedCard'
+import { FeatureCard } from '@/ui/modules'
 
-// --- Main Component: Staggered Fade-in on Scroll ---
-export default function SummarySection() {
+export function SummarySection() {
   const containerVariants = {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: 0.15, // Stagger cards by 150ms
+        staggerChildren: 0.15,
       },
     },
   }

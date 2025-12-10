@@ -5,7 +5,7 @@ import { featuredArticles } from '@/constants'
 import { ArticleCard } from '@/ui/components/BlogCard'
 import Link from 'next/link'
 
-export default function EngineeringJournal() {
+export function EngineeringJournal() {
   const { scrollYProgress } = useScroll()
 
   // Parallax effect: moves the featured card up slightly as the user scrolls past it

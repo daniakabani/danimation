@@ -1,5 +1,6 @@
 import { Feature } from '@/types'
-import { Layers, ShieldCheck, Component } from 'lucide-react'
+import {Layers, ShieldCheck, Component, FileText} from 'lucide-react'
+import {Github, Linkedin} from "@/assets/svg";
 
 export const FEATURES: Feature[] = [
   {
@@ -163,3 +164,36 @@ export const techStack = [
     techs: ['Storybook', 'ESLint/Prettier', 'Vitest/Jest', 'Playwright', 'GitHub Actions (CI/CD)'],
   },
 ]
+
+export const socialLinks = [
+  {
+    href: 'https://linkedin.com/in/daniakabani',
+    icon: Linkedin,
+    label: 'LinkedIn',
+    target: '_blank',
+  },
+  { href: 'https://github.com/daniakabani', icon: Github, label: 'GitHub', target: '_blank' },
+  {
+    href: 'https://medium.com/@daniakabani',
+    icon: FileText,
+    label: 'Medium Journal',
+    target: '_blank',
+  },
+]
+
+export const quickLinks = [
+  { href: '#stack', label: 'Tech Stack' },
+  { href: '#projects', label: 'Featured Work' },
+  { href: '#journal', label: 'Engineering Journal' },
+  { href: '#contact', label: 'Contact' },
+]
+
+export const navItems = [
+  { name: 'Work', href: '#work' },
+  { name: 'Stack', href: '#stack' },
+  { name: 'Journal', href: '#journal' },
+  { name: 'Contact', href: '#contact' },
+]
+
+export const CALENDLY_LINK = 'https://calendly.com/daniakabani/30-mins-meeting-with-dani'
+export const RESUME_LINK = '/resume.pdf'

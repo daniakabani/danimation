@@ -4,29 +4,7 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { FileText } from 'lucide-react'
 import { Linkedin, Github } from '@/assets/svg'
-
-const socialLinks = [
-  {
-    href: 'https://linkedin.com/in/daniakabani',
-    icon: Linkedin,
-    label: 'LinkedIn',
-    target: '_blank',
-  },
-  { href: 'https://github.com/daniakabani', icon: Github, label: 'GitHub', target: '_blank' },
-  {
-    href: 'https://medium.com/@daniakabani',
-    icon: FileText,
-    label: 'Medium Journal',
-    target: '_blank',
-  },
-]
-
-const quickLinks = [
-  { href: '#stack', label: 'Tech Stack' },
-  { href: '#projects', label: 'Featured Work' },
-  { href: '#journal', label: 'Engineering Journal' },
-  { href: '#contact', label: 'Contact' },
-]
+import {quickLinks, socialLinks} from "@/constants";
 
 // Staggered motion variants for the columns
 const containerVariants = {
@@ -47,7 +25,7 @@ const itemVariants = {
   },
 }
 
-export default function ArchitecturalCoda() {
+export function ArchitecturalCoda() {
   const date = new Date().getFullYear()
 
   return (

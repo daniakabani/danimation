@@ -3,9 +3,9 @@
 import { motion } from 'framer-motion'
 
 import { projects } from '@/constants'
-import ProjectShowcaseCard from '@/modules/ProjectCard'
+import { ProjectShowcaseCard } from '@/ui/modules'
 
-export default function WorkSection() {
+export function WorkSection() {
   const container = {
     hidden: {},
     visible: {
@@ -17,9 +17,12 @@ export default function WorkSection() {
   }
 
   return (
-    <section id='work' className='section py-6 sm:py-16 lg:py-24 px-6 bg-gradient-to-b from-transparent via-purple-500/5 to-transparent'>
+    <section
+      id='work'
+      className='section bg-gradient-to-b from-transparent via-purple-500/5 to-transparent px-6 py-6 sm:py-16 lg:py-24'
+    >
       <div className='mx-auto mb-20 max-w-6xl text-center'>
-        <h2 className='bg-gradient-to-r from-cyan-400/90 to-purple-500/90 bg-clip-text text-5xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight text-transparent'>
+        <h2 className='bg-gradient-to-r from-cyan-400/90 to-purple-500/90 bg-clip-text text-5xl font-extrabold tracking-tight text-transparent sm:text-5xl lg:text-7xl'>
           Selected Projects
         </h2>
 

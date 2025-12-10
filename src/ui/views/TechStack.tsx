@@ -27,7 +27,7 @@ const itemVariants = {
   },
 }
 
-export default function TechStack() {
+export function TechStack() {
   return (
     <section
       id='stack'

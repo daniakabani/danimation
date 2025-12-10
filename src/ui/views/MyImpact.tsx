@@ -2,9 +2,9 @@
 
 import { motion } from 'framer-motion'
 import { metrics } from '@/constants'
-import { MetricCard } from '@/modules/MetricCard'
+import { MetricCard } from '@/ui/modules/MetricCard'
 
-export default function ImpactMetrics() {
+export function ImpactMetrics() {
   const containerVariants = {
     hidden: {},
     visible: {

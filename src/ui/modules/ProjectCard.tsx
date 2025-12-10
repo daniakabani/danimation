@@ -15,7 +15,7 @@ interface Props {
   index: number
 }
 
-export default function ProjectShowcaseCard({
+export function ProjectShowcaseCard({
   title,
   description,
   problem,

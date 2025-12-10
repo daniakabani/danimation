@@ -1,15 +1,16 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import HeroSection from '@/modules/Hero'
-import WorkSection from '@/modules/MyWork'
-import ImpactMetrics from '@/modules/MyImpact'
-import TechStack from '@/modules/TechStack'
-import { CollaborationGateway } from '@/modules/Contact'
-import Navigation from '@/modules/Navigation'
-import Summary from '@/modules/Summary'
-import EngineeringJournal from '@/modules/MyBlog'
-import EngineeringSignature from '@/modules/Footer'
+import {
+  Hero,
+  WorkSection,
+  ImpactMetrics,
+  TechStack,
+  CollaborationGateway,
+  SummarySection,
+  EngineeringJournal,
+} from '@/ui/views'
+import { Navigation, ArchitecturalCoda } from '@/ui/modules'
 
 export default function Page() {
   const ref = useRef<HTMLDivElement>(null)
@@ -34,14 +35,14 @@ export default function Page() {
   return (
     <div ref={ref} className='relative min-h-screen bg-black'>
       <Navigation />
-      <HeroSection />
-      <Summary />
+      <Hero />
+      <SummarySection />
       <WorkSection />
       <ImpactMetrics />
       <TechStack />
       <EngineeringJournal />
       <CollaborationGateway />
-      <EngineeringSignature />
+      <ArchitecturalCoda />
     </div>
   )
 }

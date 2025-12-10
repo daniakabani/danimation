@@ -3,18 +3,12 @@
 import * as React from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion'
-import { cn } from '@/helpers'
-import { Button } from '@/ui/components' // Assuming your Button component
+import { cn, trackGAEvent } from '@/helpers'
+import { Button } from '@/ui/components'
 import { Menu, X, Coffee, FileText, ArrowRight, Globe2 } from 'lucide-react'
+import { navItems } from '@/constants'
 
-const navItems = [
-  { name: 'Work', href: '#work' },
-  { name: 'Stack', href: '#stack' },
-  { name: 'Journal', href: '#journal' },
-  { name: 'Contact', href: '#contact' },
-]
-
-export default function Navigation() {
+export function Navigation() {
   const [scrolled, setScrolled] = React.useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
   const [hoveredIndex, setHoveredIndex] = React.useState<number | null>(null)
@@ -26,6 +20,14 @@ export default function Navigation() {
       setScrolled(isScrolled)
     }
   })
+
+  function handleResumeDownload() {
+    trackGAEvent('download', 'conversion', 'resume_download_nav')
+  }
+
+  function handleCoffeeBook() {
+    trackGAEvent('click', 'conversion', 'book_coffee_calendly_nav')
+  }
 
   // Prevent scrolling when mobile menu is open (kept for UX)
   React.useEffect(() => {
@@ -62,8 +64,8 @@ export default function Navigation() {
           className={cn(
             'relative flex w-full items-center justify-between transition-all duration-300 ease-in-out',
             scrolled
-            ? 'bg-black/80 max-w-6xl rounded-full border border-cyan-400/30 px-6 py-3 shadow-2xl shadow-cyan-500/10 backdrop-blur-xl'
-            : 'px-6 max-w-6xl mx-auto bg-transparent py-2'
+              ? 'max-w-6xl rounded-full border border-cyan-400/30 bg-black/80 px-6 py-3 shadow-2xl shadow-cyan-500/10 backdrop-blur-xl'
+              : 'mx-auto max-w-6xl bg-transparent px-6 py-2'
           )}
         >
           {/* Logo Area */}
@@ -116,6 +118,7 @@ export default function Navigation() {
               className='hidden text-gray-400 hover:text-cyan-400 sm:flex'
               title='Download Resume'
               asChild
+              onClick={handleResumeDownload}
             >
               <a href='/resume.pdf' target='_blank' rel='noopener noreferrer'>
                 <FileText className='h-5 w-5' />
@@ -127,6 +130,7 @@ export default function Navigation() {
               size='sm'
               className='hidden gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-purple-600 shadow-xl shadow-cyan-500/30 transition-all hover:shadow-purple-500/40 md:flex'
               asChild
+              onClick={handleCoffeeBook}
             >
               <a href='https://calendly.com/' target='_blank' rel='noopener noreferrer'>
                 <Coffee className='h-4 w-4' />
@@ -213,7 +217,7 @@ export default function Navigation() {
                 <Button
                   variant='outline'
                   size='lg'
-                  className='w-full gap-2 border-white/20 text-white hover:border-cyan-400 hover:bg-white/10 bg-white/5'
+                  className='w-full gap-2 border-white/20 bg-white/5 text-white hover:border-cyan-400 hover:bg-white/10'
                   asChild
                 >
                   <a href='/resume.pdf' target='_blank' rel='noopener noreferrer'>
