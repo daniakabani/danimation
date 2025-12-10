@@ -1,5 +1,5 @@
 export function trackGAEvent(action: string, category: string, label: string, value?: number) {
-  if (typeof window.gtag !== 'undefined') {
+  if (typeof window !== 'undefined' && typeof window.gtag !== 'undefined') {
     window.gtag('event', action, {
       event_category: category,
       event_label: label,

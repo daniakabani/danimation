@@ -1,4 +1,3 @@
-// src/ui/components/GoogleAnalytics.tsx (Updated)
 'use client'
 
 import Script from 'next/script'
